@@ -1,13 +1,19 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Moon, Sun } from "lucide-react";
+import { usePathname } from "next/navigation"; 
 import { useTheme } from "next-themes";
 
 export default function Navbar() {
-  const [hoverIndex, setHoverIndex] = useState<0 | 1 | 2>(0);
+  const path = usePathname();
 
+  const [hoverIndex, setHoverIndex] = useState<0 | 1 | 2>(path === "/" ? 0 : path === "/about" ? 1 : 2);
+
+  useEffect(() => {
+    setHoverIndex(path === "/" ? 0 : path === "/about" ? 1 : 2)
+  }, [path])
+  
   const navItems = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
@@ -24,13 +30,20 @@ export default function Navbar() {
           className="px-6 py-1 rounded-full relative z-10"
           href={item.href}
           onMouseEnter={() => setHoverIndex(index as 0 | 1 | 2)}
+          onMouseLeave={() => setHoverIndex(path === "/" ? 0 : path === "/about" ? 1 : 2)}
         >
           {item.label}
         </Link>
       ))}
 
       <motion.div
-        className="absolute border border-accent bg-background before:bg-noise before:bg-transparent before:bg-repeat before:bg-contain before:content-none before:absolute before:w-full before:h-full before:opacity-[0.12] "
+        className={` absolute border border-accent bg-background  before:bg-transparent before:bg-repeat before:bg-contain before:content-none before:absolute before:w-full before:h-full before:opacity-[0.12] ${
+          hoverIndex === 0
+            ? "before:rounded-l-[18px]"
+            : hoverIndex === 2
+            ? "before:rounded-r-[18px]"
+            : "before:rounded-[8px]"
+        }`}
         initial={false}
         id="floating-nav"
         animate={{

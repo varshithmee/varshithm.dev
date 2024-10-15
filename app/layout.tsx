@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
+import { EB_Garamond } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import AnimatedGridPattern from "@/components/ui/animated-grid-pattern";
@@ -13,13 +14,19 @@ export const metadata: Metadata = {
   description: "Personal Portfolio :-)",
 };
 
+const Garamond = EB_Garamond({
+  subsets: ["latin"],
+  display: 'swap',
+  variable: '--font-garamond',
+})
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} ${Garamond.variable} `}>
       <body
         className={`antialiased w-screen h-screen relative overflow-hidden ${GeistSans.variable} ${GeistMono.variable} font-mono`}
       >

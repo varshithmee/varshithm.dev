@@ -75,6 +75,7 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-geist-sans)"],
         mono: ["var(--font-geist-mono)"],
+        serif: ["var(--font-garamond)"],
       },
     },
   },
