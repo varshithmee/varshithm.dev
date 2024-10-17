@@ -16,9 +16,9 @@ export const metadata: Metadata = {
 
 const Garamond = EB_Garamond({
   subsets: ["latin"],
-  display: 'swap',
-  variable: '--font-garamond',
-})
+  display: "swap",
+  variable: "--font-garamond",
+});
 
 export default function RootLayout({
   children,
@@ -26,7 +26,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} ${Garamond.variable} `}>
+    <html
+      lang="en"
+      className={`${GeistSans.variable} ${GeistMono.variable} ${Garamond.variable} `}
+    >
       <body
         className={`antialiased w-screen h-screen relative overflow-hidden ${GeistSans.variable} ${GeistMono.variable} font-mono`}
       >
@@ -47,14 +50,8 @@ export default function RootLayout({
             )}
           />
           <Navbar />
-          <main className="relative h-[calc(100vw-300px)] w-screen flex flex-col items-center justify-center">
-            <section className="w-full h-[calc(100vh - 87px)] flex items-start justify-center fixed top-0 px-24">
-              <div className="relative h-full w-full max-w-[1350px] flex justify-start">
-                <Header />
-                {children}
-              </div>
-            </section>
-          </main>
+
+          {children}
         </ThemeProvider>
       </body>
     </html>

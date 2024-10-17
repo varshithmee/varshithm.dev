@@ -91,6 +91,16 @@ body {
     height: 100%;
   }
 
+  ::-webkit-scrollbar {
+    background-color: transparent;
+    width: 10px;
+  }
+
+
+  ::-webkit-scrollbar-thumb {
+    background-color: black;
+  }
+
   #floating-nav::before {
     content: "";
     background-color: transparent;
