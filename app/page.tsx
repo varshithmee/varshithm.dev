@@ -3,9 +3,9 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="relative h-screen flex flex-col justidy-start items-center  w-screen font-serif overflow-scroll overflow-x-hidden">
-      <div className="z-20 relative bg-blue-200 flex flex-col h-[calc(100vh-300px)] w-full items-center ">
-        {/* <div className="absolute top-0  flex max-w-[1350px] w-full ">
+    <main className="relative min-h-screen flex flex-col justify-start items-center  min-w-screen font-serif  ">
+      <div className="z-20 relative flex flex-col h-[calc(100vh-300px)] w-full items-center ">
+        <div className="fixed top-0  flex max-w-[1350px] w-full ">
           <Header />
           <div className="relative h-full w-full py-[300px] flex justify-start flex-col">
             <section className="flex flex-row gap-4 text-[96px] leading-tight">
@@ -24,22 +24,13 @@ export default function Home() {
               </span>
             </section>
           </div>
-        </div> */}
+        </div>
       </div>
 
-      <section className="w-screen  flex flex-col bg-white">
-          hello
-          <p>hjello</p>
-          <p>hjello</p>
-          <p>hjello</p>
-          <p>hjello</p>
-          <p>hjello</p>
-          <p>hjello</p>
-          <p>hjello</p>
-          <p>hjello</p>
-          <p>hjello</p>
-          <p>hjello</p>
-          <p>hjello</p>
+      <section id="project-section" className="w-screen h-screen flex flex-col items-center  z-[998]">
+        <div className="w-screen h-32 bg-gradient-to-t from-background to-transparent "/>
+        <div className="w-screen h-screen bg-background" />
+          
       </section>
 
       

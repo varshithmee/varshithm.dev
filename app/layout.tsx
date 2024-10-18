@@ -31,24 +31,24 @@ export default function RootLayout({
       className={`${GeistSans.variable} ${GeistMono.variable} ${Garamond.variable} `}
     >
       <body
-        className={`antialiased w-screen h-screen relative overflow-hidden ${GeistSans.variable} ${GeistMono.variable} font-mono`}
+        className={`antialiased w-screen  relative overflow-x-hidden ${GeistSans.variable} ${GeistMono.variable} font-mono`}
       >
+        <AnimatedGridPattern
+          numSquares={50}
+          maxOpacity={0.1}
+          duration={3}
+          repeatDelay={1}
+          className={cn(
+            "[mask-image:radial-gradient(600px_circle_at_center,white,transparent)]",
+            "inset-x-0 inset-y-[-30%] fixed h-[200%] skew-y-12"
+          )}
+        />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
-          <AnimatedGridPattern
-            numSquares={50}
-            maxOpacity={0.1}
-            duration={3}
-            repeatDelay={1}
-            className={cn(
-              "[mask-image:radial-gradient(600px_circle_at_center,white,transparent)]",
-              "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12"
-            )}
-          />
           <Navbar />
 
           {children}
