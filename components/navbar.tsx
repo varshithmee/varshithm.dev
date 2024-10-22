@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { usePathname } from "next/navigation"; 
 import { useTheme } from "next-themes";
 
+
 export default function Navbar() {
   const path = usePathname();
 
@@ -49,7 +50,7 @@ export default function Navbar() {
         animate={{
           left: hoverIndex === 0 ? "10px" : hoverIndex === 1 ? "94px" : "184px",
           width:
-            hoverIndex === 1 ? "88px" : hoverIndex === 0 ? "84px" : "126px",
+            hoverIndex === 1 ? "88px" : hoverIndex === 0 ? "84px" : "128px",
           borderRadius:
             hoverIndex === 0
               ? "18px 8px 8px 18px"

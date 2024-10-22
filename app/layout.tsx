@@ -8,6 +8,8 @@ import AnimatedGridPattern from "@/components/ui/animated-grid-pattern";
 import { cn } from "@/lib/utils";
 import Header from "@/components/header";
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
+
 
 export const metadata: Metadata = {
   title: "Varshith M - Software Engineer",
@@ -31,8 +33,9 @@ export default function RootLayout({
       className={`${GeistSans.variable} ${GeistMono.variable} ${Garamond.variable} `}
     >
       <body
-        className={`antialiased w-screen  relative overflow-x-hidden ${GeistSans.variable} ${GeistMono.variable} font-mono`}
+        className={`antialiased w-screen overflow-x-hidden relative ${GeistSans.variable} ${GeistMono.variable} font-mono`}
       >
+        
         <AnimatedGridPattern
           numSquares={50}
           maxOpacity={0.1}
@@ -52,7 +55,9 @@ export default function RootLayout({
           <Navbar />
 
           {children}
+          
         </ThemeProvider>
+        
       </body>
     </html>
   );
