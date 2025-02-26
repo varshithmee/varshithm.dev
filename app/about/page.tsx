@@ -24,7 +24,9 @@ export default function About() {
             className="pt-[120px] w-screen min-h-screen flex flex-col justify-start items-center font-serif"
         >
             <section className="flex flex-row gap-12 p-12  leading-tight ">
-                <Image src="/images/about/about.png" alt="about" width={160} height={160} />
+                <div className="rounded-full size-40 overflow-hidden">
+                    <Image src="/profile_photo.jpeg" alt="about" width={160} height={160} className="w-full h-full object-cover" />
+                </div>
                 <div className="flex flex-col text-base w-full max-w-[300px] font-mono gap-5">
                     <h1 className="text-3xl font-serif italic font-medium leading-none "> How's it going? <p className="not-italic inline-block">🫡</p> </h1>
                     <p> I'm Varshith, a creative Software Engineer with a strong passion for problem solving and design instincts. </p>
