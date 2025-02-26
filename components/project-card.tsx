@@ -36,7 +36,7 @@ export default function ProjectCard() {
             }}
           />
 
-          <div className="w-[calc(100%-2px)] h-[calc(100%-2px)] z-30 rounded-[inherit] bg-background ">
+          <div className="w-[calc(100%-2px)] h-[calc(100%-2px)] z-30 rounded-[inherit] bg-black ">
             <Link href={"/blog/project1"} />
           </div>
         </div>

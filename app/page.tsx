@@ -40,9 +40,9 @@ export default function Home() {
         >
           <div
             id="project-gradient"
-            className="relative w-screen min-h-36 bg-gradient-to-t from-background via-background/70 to-transparent "
+            className="relative w-screen min-h-36 bg-gradient-to-t from-black via-black/70 to-transparent "
           />
-          <div className="w-screen bg-bg-black flex flex-row items-start pt-5 justify-center">
+          <div className="w-screen bg-black flex flex-row items-start pt-5 justify-center">
             <div className="w-full max-w-[1350px] flex flex-row flex-wrap gap-5  ">
               <ProjectCard />
               <ProjectCard />
