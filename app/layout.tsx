@@ -22,21 +22,22 @@ export default function RootLayout({
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
-	return (
-		<html
-			lang="en"
-			className={`${GeistSans.variable} ${GeistMono.variable} ${Garamond.variable} `}
-		>
-			<body
-				className={`antialiased bg-black w-screen overflow-x-hidden overflow-y-hidden relative ${GeistSans.variable} ${GeistMono.variable} font-mono`}
-			>
-				<ThemeProvider
-					attribute="class"
-					defaultTheme="dark"
-					enableSystem
-					disableTransitionOnChange
-				>
-					<Navbar />
+  return (
+    <html
+      lang="en"
+      className={`${GeistSans.variable} ${GeistMono.variable} ${Garamond.variable} `}
+    >
+      <body
+        className={`antialiased w-screen bg-black overflow-x-hidden relative ${GeistSans.variable} ${GeistMono.variable} font-mono`}
+      >
+      
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
 
 					{children}
 				</ThemeProvider>

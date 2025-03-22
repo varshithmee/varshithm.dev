@@ -38,19 +38,20 @@ export default function ProjectCard({
 						}}
 					/>
 
-					<div
-						className={
-							"w-[calc(100%-2px)] h-[calc(100%-2px)] m-0 flex z-[40] bg-black overflow-hidden rounded-[inherit]"
-						}
-					/>
-				</div>
-			</section>
-			<section className="w-full h-full p-6 pb-10 flex items-start justify-between ">
-				<div className="flex gap-2 flex-col">
-					<h1 className="font-serif text-4xl">{name}</h1>
-					<p className="font-mono">{description}</p>
-				</div>
-			</section>
-		</main>
-	);
+          <div className="w-[calc(100%-2px)] h-[calc(100%-2px)] z-30 rounded-[inherit] bg-black ">
+            <Link href={"/blog/project1"} />
+          </div>
+        </div>
+      </section>
+      <section className="w-full h-full p-6 pb-10 flex items-start justify-between ">
+        <div className="flex gap-2 flex-col">
+          <h1 className="font-serif text-4xl">Project 1</h1>
+          <p className="font-mono">
+            An online multiplayer 3D chess game built with React Three Fiber,
+            Socket.IO, and Zustand. Share your code to play with friends.
+          </p>
+        </div>
+      </section>
+    </main>
+  );
 }
