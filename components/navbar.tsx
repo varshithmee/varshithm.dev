@@ -23,8 +23,6 @@ export default function Navbar() {
     { href: "/about", label: "About" },
   ];
 
-  const { theme, setTheme } = useTheme();
-
   return (
     <nav className="fixed z-[999] left-[50%] top-[40px] text-[14px] translate-x-[-50%] flex flex-row items-center justify-start h-[50px] w-fit rounded-full py-2 px-[10px] bg-black/35 border border-accent  text-white">
       {navItems.map((item, index) => (

@@ -1,4 +1,5 @@
-import { ArrowUpRight } from "lucide-react";
+import {ArrowUpRight} from "lucide-react";
+import HyperText from "@/components/ui/hyper-text";
 
 export default function Footer() {
     return (
@@ -11,19 +12,22 @@ export default function Footer() {
                         <p className="font-mono  text-xl opacity-50 hover:animate-bounce cursor-pointer">varshith.meesala@gmail.com</p>
                     </div>
 
-                    <div className="flex flex-col items-end justify-end text-2xl">
-                        <span className="flex flex-row gap-2 items-center justify-center">LinkedIn <ArrowUpRight /></span>
-                        <span className="flex flex-row gap-2 items-center justify-center">Github <ArrowUpRight /></span>
+					<div className="flex flex-col items-end justify-end text-2xl">
+						<span className="flex flex-row gap-2 items-center justify-center hover:underline cursor-pointer">
+							<HyperText text={"LinkedIn"} /> <ArrowUpRight />
+						</span>
+						<span className="flex flex-row gap-2 items-center justify-center hover:underline cursor-pointer">
+							<HyperText text={"Github"} /> <ArrowUpRight />
+						</span>
+					</div>
+				</section>
 
-                    </div>
-                </section>
-
-                <section className="flex flex-row items-center justify-between text-lg">
-                    <span>@ 2024 Varshith Meesala</span>
-                    <span>Let's solve a problem 🫡</span>
-                    <span>Melbourne, Australia</span>
-                </section>
-            </main>
-        </footer>
-    )
+				<section className="flex flex-row items-center justify-between text-lg">
+					<span>@2024 Varshith Meesala</span>
+					<span>Let's solve a problem 🫡</span>
+					<span>Melbourne, Australia</span>
+				</section>
+			</main>
+		</footer>
+	);
 }

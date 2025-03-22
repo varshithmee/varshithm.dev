@@ -4,6 +4,8 @@ import ProjectCard from "@/components/project-card";
 import Image from "next/image";
 import Link from "next/link";
 import "overlayscrollbars/overlayscrollbars.css";
+import Wildflower from "@/components/wildflower";
+
 export default function Home() {
   return (
     
@@ -11,6 +13,7 @@ export default function Home() {
         id="home"
         className="h-screen w-screen  flex flex-col  justify-start items-center font-serif  "
       >
+        <Wildflower />
         <div className="relative flex flex-col h-[calc(100vh-300px)] min-w-full items-center ">
           <div className="fixed top-0 flex max-w-[1350px] w-full ">
             <Header />
