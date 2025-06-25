@@ -1,7 +1,7 @@
 "use client";
 
 import { useGLTF } from "@react-three/drei";
-import React, { Suspense, useEffect, useRef, useState, useMemo } from "react";
+import React, { Suspense, useEffect, useRef, useState, useMemo, type JSX } from "react";
 import type { Mesh, MeshStandardMaterial, Group } from "three";
 import * as THREE from "three";
 import type { GLTF } from "three-stdlib";
@@ -13,6 +13,8 @@ import {
 } from "@react-three/postprocessing";
 import { BlendFunction, ToneMappingMode } from "postprocessing";
 import useSettingsStore from "@/lib/SettingsStore";
+import Loader from "./Loader";
+import { motion } from "motion/react";
 
 type GLTFResult = GLTF & {
 	nodes: {
@@ -138,9 +140,8 @@ function Firefly({
 }
 
 export function Flower(props: FlowerProps) {
-	const { nodes, materials } = useGLTF(
-		"/wildflower-transformed.glb",
-	) as GLTFResult;
+	// @ts-ignore
+	const { nodes, materials } = useGLTF("wildflower-transformed.glb") as GLTFResult;
 
 	return (
 		<group {...props} dispose={null}>
@@ -222,58 +223,62 @@ export default function Wildflower() {
 
 	// Otherwise, render the 3D scene
 	return (
-		<main className="w-screen h-screen top-0 left-0 fixed pointer-events-none">
-			<Canvas
-				dpr={dpr}
-				gl={{
-					powerPreference: "high-performance",
-					antialias: false,
-					stencil: false,
-				}}
+		<Suspense fallback={null}>
+			<main
+				className="w-screen h-screen top-0 left-0 fixed pointer-events-none"
 			>
-				<color attach="background" args={["#000000"]} />
-				<fog attach="fog" args={["#000000", 10, 40]} />
+				<Canvas
+					dpr={dpr}
+					gl={{
+						powerPreference: "high-performance",
+						antialias: false,
+						stencil: false,
+					}}
+				>
+					<color attach="background" args={["#000000"]} />
+					<fog attach="fog" args={["#000000", 10, 40]} />
 
-				<Flower position={new THREE.Vector3(1.8, -4.8, 0)} delay={0.8} />
-				<Flower
-					position={new THREE.Vector3(4.5, -8, -4)}
-					rotation={[0, -Math.PI / 3, 0]}
-					delay={0.5}
-				/>
-				<Flower
-					position={new THREE.Vector3(9, -8, -4)}
-					rotation={[0, 0, 0]}
-					delay={1}
-				/>
-				<Flower
-					position={new THREE.Vector3(8, -6, -1)}
-					rotation={[0, -Math.PI / 21, 0]}
-					delay={1}
-				/>
-				<Flower
-					position={new THREE.Vector3(0.4, -2.5, 1.9)}
-					scale={0.4}
-					rotation={[0, -Math.PI / 36, Math.PI / 9]}
-					delay={1}
-				/>
-
-				{/* Main light source - optimized settings */}
-				<ambientLight intensity={0.02} />
-
-				<EffectComposer>
-					<Bloom
-						blendFunction={BlendFunction.ADD}
-						intensity={1.0}
-						luminanceThreshold={0.9}
-						luminanceSmoothing={0.025}
-						mipmapBlur={false}
+					<Flower position={new THREE.Vector3(1.8, -4.8, 0)} delay={0.8} />
+					<Flower
+						position={new THREE.Vector3(4.5, -8, -4)}
+						rotation={[0, -Math.PI / 3, 0]}
+						delay={0.5}
 					/>
-					<ToneMapping
-						blendFunction={BlendFunction.NORMAL}
-						mode={ToneMappingMode.REINHARD} // Reinhard tone mapping
+					<Flower
+						position={new THREE.Vector3(9, -8, -4)}
+						rotation={[0, 0, 0]}
+						delay={1}
 					/>
-				</EffectComposer>
-			</Canvas>
-		</main>
+					<Flower
+						position={new THREE.Vector3(8, -6, -1)}
+						rotation={[0, -Math.PI / 21, 0]}
+						delay={1}
+					/>
+					<Flower
+						position={new THREE.Vector3(0.4, -2.5, 1.9)}
+						scale={0.4}
+						rotation={[0, -Math.PI / 36, Math.PI / 9]}
+						delay={1}
+					/>
+
+					{/* Main light source - optimized settings */}
+					<ambientLight intensity={0.02} />
+
+					<EffectComposer>
+						<Bloom
+							blendFunction={BlendFunction.ADD}
+							intensity={1.0}
+							luminanceThreshold={0.9}
+							luminanceSmoothing={0.025}
+							mipmapBlur={false}
+						/>
+						<ToneMapping
+							blendFunction={BlendFunction.NORMAL}
+							mode={ToneMappingMode.REINHARD} // Reinhard tone mapping
+						/>
+					</EffectComposer>
+				</Canvas>
+			</main>
+		</Suspense>
 	);
 }

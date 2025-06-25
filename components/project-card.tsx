@@ -64,21 +64,19 @@ export default function ProjectCard({
 			>
 				<div className="w-full h-full flex items-center justify-center rounded-[inherit] relative overflow-hidden m-0  ">
 					<div
-						className={`blur-3xl absolute z-20 size-[200px] rounded-full bg-white ${
-							isHovered ? "opacity-100 " : "opacity-0"
-						} `}
+						className={`blur-3xl absolute z-20 size-[200px] rounded-full bg-white ${isHovered ? "opacity-100 " : "opacity-0"
+							} `}
 						style={{
 							top: isHovered ? cardCoords.y - 100 : 0,
 							left: isHovered ? cardCoords.x - 100 : 0,
 						}}
 					/>
 					<div
-						className={`absolute top-[1px] left-[1px] w-[calc(100%-2px)] h-[calc(100%-2px)] z-40 bg-black/90 flex items-center rounded-[inherit] justify-center transition-opacity duration-300 ${
-							isHovered ? "opacity-100" : "opacity-0"
-						}`}
+						className={`absolute top-[1px] left-[1px] w-[calc(100%-2px)] h-[calc(100%-2px)] z-40 bg-black/90 flex items-center rounded-[inherit] justify-center transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"
+							}`}
 					>
 						<motion.button
-							onClick={handleClick}
+							onClick={() => { }}
 							type="button"
 							className="px-6 py-3 group flex items-center gap-2 bg-white text-black rounded-full font-mono font-medium hover:bg-white/90"
 							animate={{
@@ -98,7 +96,7 @@ export default function ProjectCard({
 								mass: 0.1,
 							}}
 						>
-							Read More
+							Comming Soon
 							<ArrowRightIcon className="w-4 h-4 group-hover:-rotate-45 transition-transform duration-200" />
 						</motion.button>
 					</div>
