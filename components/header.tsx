@@ -1,7 +1,37 @@
-import { Construction } from "lucide-react";
+"use client";
+import { Clock, Construction } from "lucide-react";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 export default function Header() {
+  const [currentTime, setCurrentTime] = useState<string>("");
+
+  useEffect(() => {
+    // Function to update the time
+    const updateTime = () => {
+      // Create a date in AEST timezone (UTC+10)
+      const options: Intl.DateTimeFormatOptions = {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false,
+        timeZone: 'Australia/Sydney'
+      };
+      
+      const timeString = new Date().toLocaleTimeString('en-AU', options);
+      setCurrentTime(timeString);
+    };
+
+    // Update time immediately
+    updateTime();
+    
+    // Set interval to update time every second
+    const intervalId = setInterval(updateTime, 1000);
+    
+    // Clear interval on component unmount
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     <main className="absolute top-[40px] inset-x-0 font-mono flex flex-row items-center justify-between h-[50px] w-full text-[14px] text-white/50 ">
       <section className="h-[20px] flex flex-row gap-1 items-center justify-start">
@@ -12,7 +42,7 @@ export default function Header() {
         <Construction />
         Under Construction
       </section>
-      <section className="">AEST 00:00</section>
+      <section className="flex items-center gap-2"><Clock /> {currentTime} <span className="opacity-50">(AEST)</span></section>
     </main>
   );
 }

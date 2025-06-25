@@ -1,4 +1,4 @@
-import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
+import ProfilPicture from "@/public/profile_photo.jpeg";
 import Image from "next/image";
 import Footer from "@/components/footer";
 
@@ -25,7 +25,7 @@ export default function About() {
         >
             <section className="flex flex-row gap-12 p-12  leading-tight ">
                 <div className="rounded-full size-40 overflow-hidden">
-                    <Image src="/profile_photo.jpeg" alt="about" width={160} height={160} className="w-full h-full object-cover" />
+                    <Image src={ProfilPicture} width={640} height={640} alt="about" className="w-full h-full object-cover" />
                 </div>
                 <div className="flex flex-col text-base w-full max-w-[300px] font-mono gap-5">
                     <h1 className="text-3xl font-serif italic font-medium leading-none "> How's it going? <p className="not-italic inline-block">🫡</p> </h1>
